@@ -102,7 +102,7 @@
 								<li class="dropdown"><a href="{{URL::to('/blog')}}">Tin tức<i class="fa fa-angle-down"></i></a>
                                 </li> 
 								<li><a href="404.html">Giỏ hàng</a></li>
-								<li><a href="contact-us.html">Liên hệ</a></li>
+								<li><a href="{{URL::to('/contact')}}">Liên hệ</a></li>
 							</ul>
 						</div>
 					</div>

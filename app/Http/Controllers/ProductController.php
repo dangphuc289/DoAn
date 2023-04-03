@@ -140,4 +140,9 @@ class ProductController extends Controller
 
         return view('pages.sanpham.show_details')->with('category',$cate_product)->with('brand',$brand_product)->with('product_details',$details_product);
     }
+
+    // public function Count_product(){
+    //     $count = DB::table('tbl_product')->select(DB::raw('count(*) as product_count'))->value('product_count');
+    //     return view('admin.dashboard', ['count' => $count]);
+    // }
 }

@@ -42,4 +42,10 @@ class HomeController extends Controller
         $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderBy('brand_id')->get();
         return view('pages.blog')->with('category',$cate_product)->with('brand',$brand_product);
     }
+    public function contact()
+    {
+        $cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderBy('category_id')->get();
+        $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderBy('brand_id')->get();
+        return view('pages.contact')->with('category',$cate_product)->with('brand',$brand_product);
+    }
 }

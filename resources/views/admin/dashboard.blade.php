@@ -7,8 +7,8 @@
                 <i class="fa fa-eye"> </i>
             </div>
              <div class="col-md-8 market-update-left">
-             <h4>Visitors</h4>
-            <h3>13,500</h3>
+             <h4>Lượt ghé thăm</h4>
+            <h3>20</h3>
             <p>Other hand, we denounce</p>
           </div>
           <div class="clearfix"> </div>
@@ -20,8 +20,8 @@
                 <i class="fa fa-users" ></i>
             </div>
             <div class="col-md-8 market-update-left">
-            <h4>Users</h4>
-                <h3>1,250</h3>
+            <h4>Người dùng</h4>
+                <h3>{{$count_user}}</h3>
                 <p>Other hand, we denounce</p>
             </div>
           <div class="clearfix"> </div>
@@ -33,8 +33,8 @@
                 <i class="fa fa-usd"></i>
             </div>
             <div class="col-md-8 market-update-left">
-                <h4>Sales</h4>
-                <h3>1,500</h3>
+                <h4>Sản phẩm</h4>
+                <h3>{{$count_pr}}</h3>
                 <p>Other hand, we denounce</p>
             </div>
           <div class="clearfix"> </div>
@@ -46,8 +46,8 @@
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             </div>
             <div class="col-md-8 market-update-left">
-                <h4>Orders</h4>
-                <h3>1,500</h3>
+                <h4>Đơn hàng</h4>
+                <h3>5</h3>
                 <p>Other hand, we denounce</p>
             </div>
           <div class="clearfix"> </div>

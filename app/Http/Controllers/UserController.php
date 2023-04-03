@@ -82,4 +82,10 @@ class UserController extends Controller
         $this->AuthLogin();
         return Redirect::to('all-user');
     }
+    public function Count_user(){
+        $count_user = DB::table('tbl_user')->select(DB::raw('count(*) as user_count'))->value('user_count');
+        $count_pr = DB::table('tbl_product')->select(DB::raw('count(*) as product_count'))->value('product_count');
+        $count = DB::table('tbl_order')->select(DB::raw('count(*) as order_count'))->value('order_count');
+        return view('admin.dashboard', ['count_user' => $count_user], ['count_pr'=>$count_pr], ['count' => $count]);
+    }
 }
