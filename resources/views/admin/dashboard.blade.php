@@ -47,7 +47,7 @@
             </div>
             <div class="col-md-8 market-update-left">
                 <h4>Đơn hàng</h4>
-                <h3>5</h3>
+                <h3>{{$count}}</h3>
                 <p>Other hand, we denounce</p>
             </div>
           <div class="clearfix"> </div>

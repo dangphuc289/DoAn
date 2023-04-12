@@ -114,6 +114,18 @@
 							</div>
 						</form>
 					</div>
+					{{-- <div class="col-sm-4">
+						<form id="myForm" action="{{URL::to('/tim-kiem-gia')}}" method="POST">
+							{{ csrf_field() }}
+							<div class="search_box pull-right">
+								<input type="text" name="price_max" placeholder="Max">
+							</div>
+							<div class="search_box pull-right">
+								<input type="text" name="price_min" placeholder="Min">
+							</div>
+						</form>
+						<button class="btn btn-default add-to-cart" onclick="document.getElementById('myForm').submit()">Submit</button>
+					</div> --}}
 				</div>
 			</div>
 		</div><!--/header-bottom-->
@@ -217,6 +229,28 @@
 						{{-- <div class="shipping text-center"><!--shipping-->
 							<img src="images/home/shipping.jpg" alt="" />
 						</div><!--/shipping--> --}}
+
+						<div class="brands_products" style="margin-top: 10px"><!--brands_products-->
+							<h2>Lọc theo giá</h2>
+							<div class="brands-name">
+								<form id="myForm" action="{{URL::to('/tim-kiem-gia')}}" method="POST">
+									{{ csrf_field() }}
+									<ul class="nav nav-pills nav-stacked">
+										<li>
+											<div class="search_box" style="width:100%">
+												<input style="width:100%" type="text" name="price_min" placeholder="Min">
+											</div>
+										</li>
+										<li>
+											<div class="search_box" style="width:100%">
+												<input style="width:100%" type="text" name="price_max" placeholder="Max">
+											</div>
+										</li>
+									</ul>
+								</form>
+								<button style="margin-top: 10px" class="btn btn-default add-to-cart" onclick="document.getElementById('myForm').submit()">Lọc</button>
+							</div>
+						</div>
 					
 					</div>
 				</div>

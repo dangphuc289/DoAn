@@ -33,7 +33,20 @@ class HomeController extends Controller
 
         $search_product = DB::table('tbl_product')->where('product_name','like','%'.$keywords.'%')->orWhereBetween('product_price', [$price - 50000, $price + 50000])->get();
 
+
         return view('pages.sanpham.search')->with('category',$cate_product)->with('brand',$brand_product)->with('search_product',$search_product);
+    }
+
+    public function search_price(Request $request)
+    {
+        $min = (int) $request->price_min;
+        $max = (int) $request->price_max;
+    
+        $cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderBy('category_id')->get();
+        $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderBy('brand_id')->get();
+
+        $search_price = DB::table('tbl_product')->whereBetween('product_price', [$min, $max])->get();
+        return view('pages.sanpham.search_price')->with('category',$cate_product)->with('brand',$brand_product)->with('search_price',$search_price);
     }
 
     public function blog()

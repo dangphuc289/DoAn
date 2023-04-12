@@ -3,17 +3,17 @@
 
 <div class="features_items"><!--features_items-->
 	<h2 class="title text-center">KẾT QUẢ TÌM KIẾM</h2>
-		@foreach($search_product as $key => $product)
+		@foreach($search_price as $key => $price)
 			<div class="col-sm-4">
 				<div class="product-image-wrapper">
-                    <a href="{{URL::to('/chi-tiet-san-pham/'.$product->product_id)}}">
+                    <a href="{{URL::to('/chi-tiet-san-pham/'.$price->product_id)}}">
 					    <div class="single-products">
 						    <div class="productinfo text-center">
-							    <img style="width:250px; height:300px;" src="{{URL::to('public/uploads/product/'.$product->product_image)}}" alt="" />
-							    <h2>{{number_format($product->product_price).' '.'VND'}}</h2>
-							    <p>{{$product->product_name}}</p>
+							    <img style="width:250px; height:300px;" src="{{URL::to('public/uploads/product/'.$price->product_image)}}" alt="" />
+							    <h2>{{number_format($price->product_price).' '.'VND'}}</h2>
+							    <p>{{$price->product_name}}</p>
 							    <!-- <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</a> -->
-								<button type="button" class="btn btn-default add-to-cart" data-id="{{$product->product_id}}" name="add-to-cart">Thêm Vào Giỏ Hàng</button>
+								<button type="button" class="btn btn-default add-to-cart" data-id="{{$price->product_id}}" name="add-to-cart">Thêm Vào Giỏ Hàng</button>
 						    </div>						
 					    </div>
                     </a>
@@ -26,6 +26,6 @@
 					</div>
 				</div>
 			</div>
-		@endforeach										
+		@endforeach													
 </div><!--features_items-->                   
 @endsection

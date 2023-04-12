@@ -150,7 +150,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         @yield('admin_content')
 </section>
  <!-- footer -->
-		  <div class="footer">
+		  <div class="footer" style="position: fixed; bottom: 0; right:0;">
 			<div class="wthree-copyright">
 			  <p>©Design by Đặng Phức</p>
 			</div>

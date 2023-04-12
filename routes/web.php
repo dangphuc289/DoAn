@@ -24,6 +24,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/trang-chu', [HomeController::class, 'index']);
 Route::post('/tim-kiem', [HomeController::class, 'search']);
+Route::post('/tim-kiem-gia', [HomeController::class, 'search_price']);
 Route::get('/blog', [HomeController::class, 'blog']);
 Route::get('/contact', [HomeController::class, 'contact']);
 
@@ -39,8 +40,7 @@ Route::get('/chi-tiet-san-pham/{product_id}', [ProductController::class, 'detail
 // backend
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
-// Route::get('/dashboard', [ProductController::class, 'Count_product']);
-Route::get('/dashboard', [UserController::class, 'Count_user']);
+
 Route::get('/logout', [AdminController::class, 'logout']);
 Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
 

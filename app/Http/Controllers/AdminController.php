@@ -22,7 +22,10 @@ class AdminController extends Controller
     }
     public function show_dashboard(){
         $this-> AuthLogin(); 
-        return view('admin.dashboard');
+        $count_user = DB::table('tbl_user')->select(DB::raw('count(*) as user_count'))->value('user_count');
+        $count_pr = DB::table('tbl_product')->select(DB::raw('count(*) as product_count'))->value('product_count');
+        $count = DB::table('tbl_order')->select(DB::raw('count(*) as order_count'))->value('order_count');
+        return view('admin.dashboard')->with('count_user',$count_user)->with('count_pr',$count_pr)->with('count',$count);
     }
     public function dashboard(Request $request){
         $admin_email = $request -> admin_email;

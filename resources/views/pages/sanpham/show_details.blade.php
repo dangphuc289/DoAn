@@ -66,30 +66,31 @@
 			</p>																						
 		</div>
 												
-		{{-- <div class="tab-pane fade" id="reviews" >
-			<div class="col-sm-12">
-				<ul>
-					<li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
-					<li><a href=""><i class="fa fa-clock-o"></i>08:41 PM</a></li>
-					<li><a href=""><i class="fa fa-calendar-o"></i>12 July 2022</a></li>
-				</ul>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-				<p><b>Đánh Giá Của Bạn:</b></p>
-				
-				<form action="#">
-					<span>
-						<input type="text" placeholder="Tên của bạn"/>
-						<input type="email" placeholder="Email"/>
-					</span>
-					<textarea name="" ></textarea>
-					<b>Xếp Hạng: </b> <img src="images/product-details/rating.png" alt="" />
-					<button type="button" class="btn btn-default pull-right">
-						Gửi
-					</button>
-				</form>
-			</div>
-		</div>							 --}}
 	</div>
 </div><!--/category-tab-->
-                    
+<div class="recommended_items"><!--recommended_items-->
+	<h2 class="title text-center">Sản phẩm liên quan</h2>
+	
+	<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+			<div class="item active">
+			@foreach($relate as $key => $lienquan)	
+				<div class="col-sm-4">
+					<div class="product-image-wrapper">
+						<div class="single-products">
+							<div class="productinfo text-center">
+								<img style="width: 250px; height: 280px" src="{{URL::to('public/uploads/product/'.$lienquan->product_image)}}" alt="" />
+								<h2>{{number_format($lienquan->product_price).' '.'VND'}}</h2>
+								<p>{{$lienquan->product_name}}</p>
+								<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			@endforeach
+			</div>
+		</div>
+	</div>
+</div><!--/recommended_items-->
+{{-- tru so luong --}}
 @endsection
