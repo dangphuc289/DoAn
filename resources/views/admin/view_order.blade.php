@@ -54,6 +54,28 @@
                             <td>{{ ($hang->product_price * $hang->product_sales_quantity).' '.'VNĐ' }}</td>                          
                         </tr>
                     @endforeach
+
+                    <tr>
+                        <td>Tổng: {{ $hang->order_total.' '.'VNĐ'  }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            {{-- @foreach($hang_theo_id as $key => $or) --}}
+                                <form action="{{URL::to('/update-stt')}}" method="post">
+                                    @csrf
+                                    <input type="hiddem" name="order_id" value="{{ $hang->order_id }}">
+                                    <select name="order_status" style="height: 25px; width:200px;">
+                                        <option value="">Chọn trạng thái</option>
+                                        <option value="1">Đang chờ xử lý</option>
+                                        <option value="2">Đang giao hàng</option>
+                                        <option value="3">Giao hàng thành công</option>
+                                        <option value="4">Hủy đơn hàng</option>
+                                    </select>
+                                    <button type="submit">Cập nhật</button>
+                                </form>
+                            {{-- @endforeach --}}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>   

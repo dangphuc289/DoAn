@@ -49,7 +49,8 @@
             <th>Tên Người Đặt</th>
             <th>Tổng Giá Tiền</th>
             <th>Tình Trạng</th>
-            <th>Chức Năng</th>
+            <th>Ngày Đặt</th>
+            <th>Xem Chi Tiết</th>
           </tr>
         </thead>
         <tbody>
@@ -58,7 +59,29 @@
                 <!-- <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td> -->
                 <td>{{ $order->user_name }}</td>
                 <td>{{ $order->order_total }}</td>
-                <td>{{ $order->order_status }}</td>
+                {{-- <td>{{ $order->order_status }}</td> --}}
+                <td>
+                  <?php 
+                  if($order->order_status==1){
+                    ?>
+                    Đang xử lý
+                    <?php
+                  }elseif ($order->order_status==2) {
+                    ?>
+                    Đang giao hàng
+                    <?php
+                  }elseif ($order->order_status==3) {
+                    ?>
+                    Giao hàng thành công
+                    <?php
+                  }else{
+                  ?> 
+                    Hủy đơn hàng
+                    <?php 
+                  }
+                  ?>
+                </td>
+                <td>{{ $order->create_at}}</td>
                 
                 <td>
                     <a style="font-size: 20px;" href="{{URL::to('/view-order/'.$order->order_id)}}" class="active" ui-toggle-class="">

@@ -112,7 +112,7 @@ class CheckoutController extends Controller
         //insert order
         $order_data = array();
         $order_data['order_total'] = Cart::total(0);
-        $order_data['order_status'] = 'Đang chờ xử lý!';
+        $order_data['order_status'] = '1';
         $order_data['user_id'] = Session::get('user_id');
         $order_data['shipping_id'] = Session::get('shipping_id');
         $order_data['payment_id'] = $payment_id;
@@ -172,5 +172,17 @@ class CheckoutController extends Controller
 
         $manager_order_by_id = view('admin.view_order')->with('order_by_id', $order_by_id)->with('nguoinhan', $nguoinhan)->with('hang_theo_id', $hang_theo_id);
         return view('admin_layout')->with('admin.view_order', $manager_order_by_id);
+    }
+
+    public function update_order_stt(Request $request){
+        $order_id = $request->input('order_id');
+        $order_stt = $request->input('order_status');
+
+        $result = DB::table('tbl_order')->where('order_id',$order_id)->update(['order_status' => $order_stt]);
+
+        
+
+        return Redirect::to('/manage-order');
+
     }
 }
