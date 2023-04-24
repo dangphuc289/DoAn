@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Models\Order;
+use Carbon\Carbon;
 session_start();
 
 class CheckoutController extends Controller
@@ -111,7 +113,7 @@ class CheckoutController extends Controller
 
         //insert order
         $order_data = array();
-        $order_data['order_total'] = Cart::total(0);
+        $order_data['order_total'] = str_replace(',', '', Cart::total(0));
         $order_data['order_status'] = '1';
         $order_data['user_id'] = Session::get('user_id');
         $order_data['shipping_id'] = Session::get('shipping_id');
@@ -179,10 +181,23 @@ class CheckoutController extends Controller
         $order_stt = $request->input('order_status');
 
         $result = DB::table('tbl_order')->where('order_id',$order_id)->update(['order_status' => $order_stt]);
-
-        
-
         return Redirect::to('/manage-order');
+    }
+
+    public function statistical(){
+        $orders = DB::table('tbl_order')
+                ->select(DB::raw('MONTH(create_at) as month'), DB::raw('SUM(order_total) as total'))
+                ->groupBy(DB::raw('MONTH(create_at)'))
+                ->get();
+
+        // Chuyển dữ liệu sang định dạng dành cho biểu đồ
+        $data = [];
+        foreach ($orders as $order) {
+            $data['months'][] = "Tháng " . $order->month;
+            $data['totals'][] = $order->total;
+        }
+        return view('admin.view_statistical', compact('data'));
+
 
     }
 }

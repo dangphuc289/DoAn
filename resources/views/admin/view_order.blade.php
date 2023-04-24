@@ -50,20 +50,23 @@
                         <tr>
                             <td>{{ $hang->product_name }}</td>
                             <td>{{ $hang->product_sales_quantity }}</td>
-                            <td>{{ $hang->product_price.' '.'VNĐ' }}</td>
-                            <td>{{ ($hang->product_price * $hang->product_sales_quantity).' '.'VNĐ' }}</td>                          
+                            <td>{{ number_format($hang->product_price).' '.'VNĐ' }}</td>
+                            <td>{{ number_format($hang->product_price * $hang->product_sales_quantity).' '.'VNĐ' }}</td>                          
                         </tr>
                     @endforeach
 
                     <tr>
-                        <td>Tổng: {{ $hang->order_total.' '.'VNĐ'  }}</td>
+                        <td>Tổng: {{ number_format($hang->order_total).' '.'VNĐ'  }}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td colspan="5">
                             {{-- @foreach($hang_theo_id as $key => $or) --}}
                                 <form action="{{URL::to('/update-stt')}}" method="post">
                                     @csrf
-                                    <input type="hiddem" name="order_id" value="{{ $hang->order_id }}">
+                                    <input type="hidden" name="order_id" value="{{ $hang->order_id }}">
                                     <select name="order_status" style="height: 25px; width:200px;">
                                         <option value="">Chọn trạng thái</option>
                                         <option value="1">Đang chờ xử lý</option>

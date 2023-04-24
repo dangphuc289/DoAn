@@ -96,6 +96,8 @@ Route::post('/order-place', [CheckoutController::class, 'order_place']);
 Route::get('/manage-order', [CheckoutController::class, 'manage_order']);
 Route::get('/view-order/{orderId}', [CheckoutController::class, 'view_order']);
 
+//manage
+Route::get('/manage', [CheckoutController::class, 'statistical']);
 
 // //user
 Route::get('/add-user', [UserController::class, 'add_user']);

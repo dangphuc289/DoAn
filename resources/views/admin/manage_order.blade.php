@@ -58,7 +58,7 @@
             <tr>
                 <!-- <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td> -->
                 <td>{{ $order->user_name }}</td>
-                <td>{{ $order->order_total }}</td>
+                <td>{{ number_format($order->order_total) }}</td>
                 {{-- <td>{{ $order->order_status }}</td> --}}
                 <td>
                   <?php 
@@ -97,7 +97,7 @@
       <div class="row">
         
         <div class="col-sm-5 text-center">
-          <small class="text-muted inline m-t-sm m-b-sm">showing max 5 items</small>
+          {{-- <small class="text-muted inline m-t-sm m-b-sm">showing max 5 items</small> --}}
         </div>
         <div class="col-sm-7 text-right text-center-xs">                
         <div>
