@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>THP SHOP</title>
+    <title>Quỳnh Hoa SHOP</title>
     <link href="{{asset('public/fontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/fontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/fontend/css/prettyPhoto.css')}}" rel="stylesheet">
@@ -31,7 +31,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="{{URL::to('/trang-chu')}}"><img src="{{URL::to('public/fontend/images/logo1.png')}}" alt="" width="150" height="50"/></a>
+							<a href="{{URL::to('/trang-chu')}}"><img src="{{URL::to('public/fontend/images/logo2.png')}}" alt="" width="150" height="50"/></a>
 						</div>
 					</div>
 					<div class="col-sm-8">
@@ -145,7 +145,7 @@
 						<div class="carousel-inner">
 							<div class="item active">
 								<div class="col-sm-6">
-									<h1><span>THP</span>-SHOP</h1>
+									<h1><span>QH</span>-SHOP</h1>
 									<h2>Set Son MAC A Taste Of Matte Lipstick</h2>
 									<p>Set Son MAC A Taste Of Matte Lipstick 5 Màu là dòng son cao cấp đến từ thương hiệu MAC nổi tiếng. Set son sở hữu những 5 màu sắc khác nhau được đựng trong túi đựng đồ lưu niệm và có thể tái sử dụng, giúp thay đổi bất kỳ hoàn cảnh và cho nàng thêm xinh xắn, quyến rũ.</p>
 								</div>
@@ -269,7 +269,7 @@
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="companyinfo">
-							<h2><span>THP</span>-shop</h2>
+							<h2><span>QH</span>-shop</h2>
 							<p>Shop bán mỹ phẩm uy tín</p>
 						</div>
 					</div>
@@ -337,7 +337,7 @@
 					<div class="col-sm-3">
 						<div class="address">
 							<img src="{{('public/fontend/images/map.png')}}" alt="" />
-							<p>505 Country</p>
+
 						</div>
 					</div>
 				</div>
