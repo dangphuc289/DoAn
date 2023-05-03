@@ -196,8 +196,40 @@ class CheckoutController extends Controller
             $data['months'][] = "Tháng " . $order->month;
             $data['totals'][] = $order->total;
         }
+
         return view('admin.view_statistical', compact('data'));
+    }
 
+    public function statistical_order(){
+        $orders = DB::table('tbl_order')
+                ->select(DB::raw('MONTH(create_at) as month'), DB::raw('COUNT(*) as total'))
+                ->groupBy(DB::raw('MONTH(create_at)'))
+                ->get();
 
+        // Chuyển dữ liệu sang định dạng dành cho biểu đồ
+        $data = [];
+        foreach ($orders as $order) {
+            $data['months'][] = "Tháng " . $order->month;
+            $data['totals'][] = $order->total;
+        }
+
+        return view('admin.view_statitiscal_order', compact('data'));
+    }
+
+    public function statistical_day(){
+
+        $orders = DB::table('tbl_order')
+                ->select(DB::raw('DATE_FORMAT(create_at, "%d-%m-%Y") as date'), DB::raw('SUM(order_total) as total'))
+                ->groupBy(DB::raw('DATE_FORMAT(create_at, "%d-%m-%Y")'))
+                ->get();
+
+        // Chuyển dữ liệu sang định dạng dành cho biểu đồ
+        $data = [];
+        foreach ($orders as $order) {
+            $data['days'][] = "Ngày " . $order->date;
+            $data['totals'][] = $order->total;
+        }
+
+        return view('admin.view_statistical_day', compact('data'));
     }
 }
