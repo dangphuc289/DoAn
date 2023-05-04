@@ -98,7 +98,7 @@ Route::get('/view-order/{orderId}', [CheckoutController::class, 'view_order']);
 
 //manage
 Route::get('/manage', [CheckoutController::class, 'statistical']);
-Route::get('/manage-order', [CheckoutController::class, 'statistical_order']);
+Route::get('/manager-order', [CheckoutController::class, 'statistical_order']);
 Route::get('/manage-day', [CheckoutController::class, 'statistical_day']);
 
 // //user

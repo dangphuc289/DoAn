@@ -8,8 +8,8 @@
             </div>
              <div class="col-md-8 market-update-left">
              <h4>Lượt ghé thăm</h4>
-            <h3>20</h3>
-            <p>Other hand, we denounce</p>
+            <h3>126</h3>
+            <p>Tổng số khách hàng đã ghé thăm.</p>
           </div>
           <div class="clearfix"> </div>
         </div>
@@ -22,7 +22,7 @@
             <div class="col-md-8 market-update-left">
             <h4>Người dùng</h4>
                 <h3>{{$count_user}}</h3>
-                <p>Other hand, we denounce</p>
+                <p>Tổng số tài khoản người dùng.</p>
             </div>
           <div class="clearfix"> </div>
         </div>
@@ -35,7 +35,7 @@
             <div class="col-md-8 market-update-left">
                 <h4>Sản phẩm</h4>
                 <h3>{{$count_pr}}</h3>
-                <p>Other hand, we denounce</p>
+                <p>Tổng số lượng các mặt hàng.</p>
             </div>
           <div class="clearfix"> </div>
         </div>
@@ -48,7 +48,7 @@
             <div class="col-md-8 market-update-left">
                 <h4>Đơn hàng</h4>
                 <h3>{{$count}}</h3>
-                <p>Other hand, we denounce</p>
+                <p>Tổng số đơn hàng đã được đặt.</p>
             </div>
           <div class="clearfix"> </div>
         </div>
@@ -56,7 +56,7 @@
    <div class="clearfix"> </div>
 </div>	
 <!-- //market-->
-<div class="row">
+{{-- <div class="row">
     <div class="panel-body">
         <div class="col-md-12 w3ls-graph">
             <!--agileinfo-grap-->
@@ -73,7 +73,7 @@
                             <div id="hero-area"></div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 <!--//agileinfo-grap-->
 
         </div>

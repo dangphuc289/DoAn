@@ -147,7 +147,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <ul class="sub">
 						<li><a href="{{URL::to('/manage')}}"> Doanh thu theo tháng</a></li>
-                        <li><a href="{{URL::to('/manage-order')}}"> Đơn hàng theo tháng</a></li>
+                        <li><a href="{{URL::to('/manager-order')}}"> Đơn hàng theo tháng</a></li>
                         <li><a href="{{URL::to('/manage-day')}}"> Doanh thu theo ngày</a></li>
                     </ul>
                 </li>
@@ -189,7 +189,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         // Lấy dữ liệu từ controller truyền sang view
         var months = {!! json_encode($data['months']) !!};
         var totals = {!! json_encode($data['totals']) !!};
-        var counts = {!! json_encode($data['counts']) !!};
 
         // Tạo biểu đồ
         var ctx = document.getElementById('myChart').getContext('2d');

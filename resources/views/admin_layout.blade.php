@@ -146,7 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <ul class="sub">
 						<li><a href="{{URL::to('/manage')}}"> Doanh thu theo tháng</a></li>
-                        <li><a href="{{URL::to('/manage-order')}}"> Đơn hàng theo tháng</a></li>
+                        <li><a href="{{URL::to('/manager-order')}}"> Đơn hàng theo tháng</a></li>
                         <li><a href="{{URL::to('/manage-day')}}"> Doanh thu theo ngày</a></li>
                     </ul>
                 </li>
