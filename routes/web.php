@@ -93,6 +93,7 @@ Route::post('/login-user', [CheckoutController::class, 'login_user']);
 Route::post('/order-place', [CheckoutController::class, 'order_place']);
 
 //manage-order
+Route::get('/print-order/{checkout_code}', [CheckoutController::class, 'print_order']);
 Route::get('/manage-order', [CheckoutController::class, 'manage_order']);
 Route::get('/view-order/{orderId}', [CheckoutController::class, 'view_order']);
 

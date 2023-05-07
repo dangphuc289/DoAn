@@ -81,6 +81,7 @@
                     </tr>
                 </tbody>
             </table>
+            <a style="position: fixed; right:50px;" target="_blank" href="{{url('/print-order/'.$hang->order_id)}}">In Đơn Hàng</a>
         </div>   
     </div>
 </div>

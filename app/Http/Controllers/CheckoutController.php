@@ -10,6 +10,8 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Models\Order;
 use Carbon\Carbon;
 session_start();
+use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\App;
 
 class CheckoutController extends Controller
 {
@@ -231,5 +233,114 @@ class CheckoutController extends Controller
         }
 
         return view('admin.view_statistical_day', compact('data'));
+    }
+
+    public function print_order($checkout_code){
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML($this->print_order_convert($checkout_code));
+        return $pdf->stream();
+    }
+    public function print_order_convert($checkout_code){
+        //return $checkout_code;
+        $order_details = DB::table('tbl_order_details')->where('order_id',$checkout_code)->get();
+        $order = DB::table('tbl_order')->where('order_id',$checkout_code)->get();
+
+        foreach($order as $key => $ord){
+            $user_id = $ord->user_id;
+            $shipping_id = $ord->shipping_id;
+        }
+
+        $user = DB::table('tbl_user')->where('user_id',$user_id)->first();
+        $shipping = DB::table('tbl_shipping')->where('shipping_id',$shipping_id)->first();
+
+        $order_product = DB::table('tbl_order_details')->where('order_id',$checkout_code)->get();
+
+        $output = '';
+        
+        $output.='
+        <style>
+            body{
+                font-family: DejaVu Sans;
+            }
+            table, th, td{
+                border: 1px solid;
+                border-collapse: collapse;
+                text-align: center;
+            }
+            .table-styling{
+                border-collapse: collapse;
+                width: 100%;
+            }
+            h3{
+                text-align: center;
+            }
+            .title{
+                text-align: center;
+            }
+        </style>
+        <h3>Quỳnh Hoa Shop</h3>
+        <p class="title">(Hóa đơn thanh toán)</p>
+        <p>Thông tin người nhận:</p>
+        <table class="table-styling">
+            <thead>
+                <tr>
+                    <th>Tên Người Nhận</th>
+                    <th>Địa Chỉ</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Email</th>
+                    <th>Ghi Chú</th>
+                </tr>
+            </thead>
+            <tbody>';
+                $output.='
+                    <tr>
+                        <td>'.$shipping->shipping_name.'</td>
+                        <td>'.$shipping->shipping_address.'</td>
+                        <td>'.$shipping->shipping_phone.'</td>
+                        <td>'.$shipping->shipping_email.'</td>
+                        <td>'.$shipping->shipping_notes.'</td>
+                    </tr>';
+                $output.='
+            </tbody>
+        </table>
+            
+        <p>Thông tin đơn hàng:</p>
+        <table class="table-styling">
+            <thead>
+                <tr>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Giá Sản Phẩm</th>
+                    <th>Số Lượng</th>
+                    <th>Phí Vận Chuyển</th>
+                    <th>Tổng Tiền</th>
+                </tr>
+            </thead>
+            <tbody>';
+                $total = 0;
+                foreach($order_product as $key => $product){                  
+                    $subtotal = $product->product_price * $product->product_sales_quantity;
+                    $total += $subtotal;
+                    $output.='
+                        <tr>
+                            <td>'.$product->product_name.'</td>
+                            <td>'.number_format($product->product_price).' '.'VND'.'</td>
+                            <td>'.$product->product_sales_quantity.'</td>
+                            <td>Free Ship</td>
+                            <td>'.number_format($subtotal).' '.'VND'.'</td>
+                        </tr>';
+                }                   
+                    $output.='
+            </tbody>
+        </table>
+        <br>
+        <b>Thanh toán: '.number_format($total).' '.'VND'.'</b>
+        <br>
+        <b>Hình thức thanh toán: Thanh toán khi nhận hàng!</b>
+        <br>
+        <p>Ký tên:</p>
+        <b style="margin-left: 10%">Người giao hàng</b>
+        <b style="margin-left: 40%">Người nhận hàng</b>
+        ';
+        return $output;
     }
 }
